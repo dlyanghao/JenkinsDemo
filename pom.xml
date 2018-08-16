@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>work.yanghao</groupId>
+  <artifactId>JenkinsDemo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>JenkinsDemo Maven Webapp</name>
+
+  <!--版本统一管理-->
+  <properties>
+    <!-- spring版本号 -->
+    <spring.version>4.2.9.RELEASE</spring.version>
+    <!-- mybatis版本号 -->
+    <mybatis.version>3.2.3</mybatis.version>
+    <!-- log4j日志文件管理包版本 -->
+    <slf4j.version>1.7.7</slf4j.version>
+    <log4j.version>1.2.17</log4j.version>
+  </properties>
+
+  <!--依赖Jar包管理-->
+  <dependencies>
+    <!--Junit测试环境-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--日志依赖-->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.9.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+
+    <!--Spring核心包-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-oxm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!--Spring支持包-->
+    <!--映入json-->
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.13</version>
+    </dependency>
+    <!--上传组件包-->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.4</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.9</version>
+    </dependency>
+
+    <!-- mybatis核心包 -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${mybatis.version}</version>
+    </dependency>
+
+    <!-- mybatis/spring包 -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>1.2.1</version>
+    </dependency>
+
+    <!--mysql驱动包-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.37</version>
+    </dependency>
+
+    <!-- 阿里 druid数据库连接池 -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.0.13</version>
+    </dependency>
+
+    <!-- JSTL标签类 -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <!--JSON工具Jar-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.8</version>
+    </dependency>
+
+  </dependencies>
+
+
+  <!--编译运行插件管理-->
+  <build>
+    <finalName>JenkinsDemo</finalName>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <!--编译插件-->
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
+        <!--web容器插件-->
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.2</version>
+          <configuration>
+            <port>8080</port>
+            <path>/</path>
+            <uriEncoding>UTF-8</uriEncoding>
+            <server>tomcat7</server>
+          </configuration>
+        </plugin>
+        <!--打包插件-->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <configuration>
+            <!--注意增加这两行，在打包时相关的类会被独立打成jar -->
+            <attachClasses>true</attachClasses>
+            <classesClassifier>api</classesClassifier>
+          </configuration>
+          <version>2.4</version>
+          <executions>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+
+</project>
